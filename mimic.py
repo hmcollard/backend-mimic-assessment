@@ -68,11 +68,12 @@ def print_mimic(mimic_dict, start_word):
     silly_sentence = []
     silly_sentence.append(start_word)
     for _ in range(200):
-        new_word = random.choice(mimic_dict.get(start_word))
-        if not new_word:
-            new_word = ''
-        silly_sentence.append(new_word)
-        start_word = new_word
+        new_word_list = mimic_dict.get(start_word)
+        if not new_word_list:
+            new_word_list = ['']
+        random_word = random.choice(new_word_list)
+        silly_sentence.append(random_word)
+        start_word = random_word
     print(' '.join(silly_sentence))
 # Provided main(), calls mimic_dict() and print_mimic()
 
